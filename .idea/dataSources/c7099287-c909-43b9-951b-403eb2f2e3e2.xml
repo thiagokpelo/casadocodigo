@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="casadocodigo@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="casadocodigo">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="portal_noticias"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="produto"/>
+    <table id="9" parent="2" name="produto_precos"/>
+    <column id="10" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="11" parent="8" name="descricao">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="12" parent="8" name="paginas">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="8" name="titulo">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="14" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="15" parent="9" name="Produto_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="9" name="tipo">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="valor">
+      <Position>3</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <index id="18" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
+      <ColNames>Produto_id</ColNames>
+    </index>
+    <foreign-key id="19" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
+      <ColNames>Produto_id</ColNames>
+      <RefSchemaName>casadocodigo</RefSchemaName>
+      <RefTableName>produto</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
