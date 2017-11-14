@@ -38,6 +38,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.1.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.0.RELEASE" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.15" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.1.0.Final" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="loja/web/Web" />

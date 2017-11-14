@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("produtos")
+@RequestMapping("/produtos")
 public class ProdutosController {
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class ProdutosController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.addValidators();
+		binder.addValidators(new ProdutoValidation());
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
