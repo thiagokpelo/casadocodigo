@@ -1,12 +1,11 @@
 package br.com.casadocodigo.loja.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Produto {
@@ -14,11 +13,16 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String titulo;
+
+	@Lob
 	private String descricao;
 	private Long paginas;
-	
+
+	@DateTimeFormat
+	private Calendar dataLancamento;
+
 	@ElementCollection
 	private List<Preco> precos;
 	
@@ -48,6 +52,12 @@ public class Produto {
 	}
 	public void setPaginas(Long paginas) {
 		this.paginas = paginas;
+	}
+	public Calendar getDataLancamento() {
+		return dataLancamento;
+	}
+	public void setDataLancamento(Calendar dataLancamento) {
+		this.dataLancamento = dataLancamento;
 	}
 	
 	@Override
