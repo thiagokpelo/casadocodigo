@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="casadocodigo:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/casadocodigo_war</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/casadocodigo</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

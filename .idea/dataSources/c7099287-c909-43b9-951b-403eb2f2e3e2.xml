@@ -32,28 +32,36 @@
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="14" parent="8" name="PRIMARY">
+    <column id="14" parent="8" name="dataLancamento">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="15" parent="8" name="sumarioPath">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="16" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="15" parent="9" name="Produto_id">
+    <column id="17" parent="9" name="Produto_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="9" name="tipo">
+    <column id="18" parent="9" name="tipo">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="17" parent="9" name="valor">
+    <column id="19" parent="9" name="valor">
       <Position>3</Position>
       <DataType>decimal(19,2)|0</DataType>
     </column>
-    <index id="18" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
+    <index id="20" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
       <ColNames>Produto_id</ColNames>
     </index>
-    <foreign-key id="19" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
+    <foreign-key id="21" parent="9" name="FK_hl4xdmygc7v2x607r4rbs6x3a">
       <ColNames>Produto_id</ColNames>
       <RefSchemaName>casadocodigo</RefSchemaName>
       <RefTableName>produto</RefTableName>

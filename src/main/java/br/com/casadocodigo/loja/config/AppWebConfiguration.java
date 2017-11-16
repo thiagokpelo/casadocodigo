@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.config;
 
+import br.com.casadocodigo.loja.models.CarrinhoCompras;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ import br.com.casadocodigo.loja.daos.ProdutoDAO;
 import br.com.casadocodigo.loja.infra.FileSaver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class, ProdutoDAO.class, FileSaver.class})
+@ComponentScan(basePackageClasses={HomeController.class, ProdutoDAO.class, FileSaver.class, CarrinhoCompras.class})
 public class AppWebConfiguration {
 	
 	@Bean
