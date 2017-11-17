@@ -6,14 +6,19 @@ import br.com.casadocodigo.loja.models.CarrinhoItem;
 import br.com.casadocodigo.loja.models.Produto;
 import br.com.casadocodigo.loja.models.TipoPreco;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.Serializable;
 
 @Controller
 @RequestMapping("/carrinho")
-public class CarrinhoController {
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
+public class CarrinhoController implements Serializable {
 
     @Autowired
     private ProdutoDAO produtoDAO;
@@ -21,19 +26,31 @@ public class CarrinhoController {
     @Autowired
     private CarrinhoCompras carrinho;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView items() {
+        return new ModelAndView("carrinho/items");
+    }
+
     @RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-    public ModelAndView adicionar(Integer produtoId, TipoPreco tipoPreco) {
-        ModelAndView mv = new ModelAndView("redirect:/produtos");
-        CarrinhoItem carrinhoItem = criaItem(produtoId, tipoPreco);
+    public ModelAndView adicionar(Integer produtoId, TipoPreco tipo) {
+        ModelAndView mv = new ModelAndView("redirect:/carrinho");
+        CarrinhoItem carrinhoItem = criaItem(produtoId, tipo);
 
         carrinho.add(carrinhoItem);
 
         return mv;
     }
 
-    private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipoPreco) {
+    @RequestMapping(value = "/remover", method = RequestMethod.POST)
+    public ModelAndView remover(Integer produtoId, TipoPreco tipo) {
+        carrinho.remover(produtoId, tipo);
+
+        return new ModelAndView("redirect:/carrinho");
+    }
+
+    private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipo) {
         Produto produto = produtoDAO.find(produtoId);
-        CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
+        CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipo);
 
         return carrinhoItem;
     }

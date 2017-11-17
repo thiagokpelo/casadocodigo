@@ -34,11 +34,11 @@
 			<form:errors path="produto.dataLancamento" />
 		</div>
     	
-    	<c:forEach items="${tipos }" var="tipoPreco" varStatus="status">
+    	<c:forEach items="${tipos }" var="tipo" varStatus="status">
     	<div>
-    		<label>${tipoPreco }</label>
+    		<label>${tipo }</label>
     		<form:input path="produto.precos[${status.index }].valor" />
-    		<form:hidden path="produto.precos[${status.index }].tipo" value="${tipoPreco }" />
+    		<form:hidden path="produto.precos[${status.index }].tipo" value="${tipo }" />
     	</div>
     	</c:forEach>
 

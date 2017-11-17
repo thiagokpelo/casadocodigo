@@ -10,7 +10,8 @@
 <body>
     <h1>Lista de Produtos</h1>
 
-	<div>${sucesso }</div>
+	<div style="color: green">${sucesso }</div>
+	<div style="color: red">${falha }</div>
     
     <table>
     	<thead>

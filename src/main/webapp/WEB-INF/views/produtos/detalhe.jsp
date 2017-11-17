@@ -12,6 +12,10 @@
 	<title>${produto.titulo} - Casa do Código</title>
 </head>
 <body class="produto">
+	<header>
+		<h1>Casa do Código</h1>
+		<h2><a href="${s:mvcUrl('CC#items').build()}">Seu carrinho (${carrinhoCompras.quantidade})</a></h2>
+	</header>
 	<main>
 		<article id="${produto.id}">
 			<header class="cabecalhoProdutoLivro container">
